@@ -1,0 +1,187 @@
+ROLES
+id (PK)
+name
+is active
+created at
+updated at
+
+DEPARTMENTS
+id (PK)
+code
+name
+is active
+created at
+updated at
+
+USERS
+id (PK)
+first name
+middle name
+last name
+email
+password hash
+role (FK)
+department (FK)
+is active
+created at
+updated at
+
+PASSWORD RESET OTPS
+id (PK)
+user (FK)
+OTP hash
+expires at
+is used
+attempt count
+created at
+
+STUDENTS
+id (PK)
+first name
+middle name
+last name
+university pattern
+department (FK)
+semester {1, 2, 3, 4, 5, 6, 7, 8}
+division
+roll number
+is active
+created at
+updated at
+
+FACULTY
+id (PK)
+first name
+middle name
+last name
+email
+department (FK)
+designation
+is active
+created at
+updated at
+
+SUBJECTS
+id (PK)
+code
+name
+university pattern
+department (FK)
+semester {1, 2, 3, 4, 5, 6, 7, 8}
+subject type {theoretical, practical}
+subject category {regular, elective}
+elective group (FK)
+created at
+updated at
+
+ELECTIVE GROUPS
+id (PK)
+name
+university pattern
+department (FK)
+semester
+created at
+updated at
+
+STUDENT SUBJECT ENROLLMENTS
+id (PK)
+student (FK)
+subject (FK)
+enrollment type {honours, elective}
+created at
+updated at
+
+EXAM TYPES
+id (PK)
+name
+duration
+is active
+created at
+updated at
+
+ROOMS
+id (PK)
+room number
+building
+floor
+room type
+capacity
+is active
+created at
+updated at
+
+TIME SLOTS
+id (PK)
+name
+start time
+end time
+created at
+updated at
+
+TIMETABLE GENERATION REQUESTS
+id (PK)
+coordinator (FK)
+exam type (FK)
+start date
+end date
+created at
+updated at
+
+GENERATION REQUEST SCOPES
+id (PK)
+generation request (FK)
+university pattern
+semester
+created at
+updated at
+
+TIMETABLES
+id (PK)
+generation request (FK)
+time slot (FK)
+created at
+updated at
+
+TIMETABLE ENTRIES
+id (PK)
+timetable (FK)
+subject (FK)
+exam date
+created at
+updated at
+
+TIMETABLE ENTRY ROOMS
+id (PK)
+timetable entry (FK)
+room (FK)
+created at
+updated at
+
+EXAM ROOM GROUP ALLOCATIONS
+id (PK)
+timetable entry (FK)
+room (FK)
+university pattern
+department (FK)
+semester
+division
+start roll number
+end roll number
+created at
+updated at
+
+EXAM ROOM STUDENT ALLOCATIONS
+id (PK)
+timetable entry (FK)
+room (FK)
+student (FK)
+seat number
+created at
+updated at
+
+INVIGILATION ASSIGNMENTS
+id (PK)
+timetable entry (FK)
+faculty (FK)
+created at
+updated at
